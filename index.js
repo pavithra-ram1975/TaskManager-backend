@@ -11,12 +11,17 @@ const jwt = require("jsonwebtoken");
 const{authenticateToken} = require("./utilities");
 app.use(express.json());
 
-app.use(
-    cors({
-        origin:"*",
+// app.use(
+//     cors({
+//         origin:"*",
 
-    })
-);
+//     })
+// );
+app.use(cors({
+  origin: "https://taskmanager-frontend-pied.vercel.app/", 
+  credentials: true
+}));
+
 app.get("/", (req, res) => {
   res.send("Task Manager API is up and running!");
 });
@@ -342,6 +347,6 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-require('dotenv').config(); // Load .env variables
+// Load .env variables
 
 module.exports = app;
