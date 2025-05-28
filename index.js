@@ -17,6 +17,9 @@ app.use(
 
     })
 );
+app.get("/", (req, res) => {
+  res.send("Task Manager API is up and running!");
+});
 
 app.post("/createacc",async(req,res)=>{
     const{fullName,email,password} = req.body;
