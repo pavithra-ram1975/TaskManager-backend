@@ -21,6 +21,7 @@ app.use(express.json());
 //   origin: "https://taskmanager-frontend-pied.vercel.app", 
 //   credentials: true
 // }));
+
 const allowedOrigins = [
   "https://taskmanager-frontend-pied.vercel.app",
 ];
