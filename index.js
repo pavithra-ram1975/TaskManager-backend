@@ -1,11 +1,13 @@
 require("dotenv").config();
+const cors = require("cors");
+const express = require("express");
 const config = require("./config.json");
 const mongoose = require("mongoose");
 mongoose.connect(config.connectionString);
 const User = require("./models/user.model");
 const Task = require("./models/task.model");
-const express = require("express");
-const cors = require("cors");
+
+
 const app = express();
 const jwt = require("jsonwebtoken");
 const{authenticateToken} = require("./utilities");
@@ -34,7 +36,7 @@ app.use(cors({
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true
+//   credentials: true
 }));
 
 
