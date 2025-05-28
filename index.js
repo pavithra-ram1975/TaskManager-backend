@@ -18,7 +18,7 @@ app.use(express.json());
 //     })
 // );
 app.use(cors({
-  origin: "https://taskmanager-frontend-pied.vercel.app/", 
+  origin: "https://taskmanager-frontend-pied.vercel.app", 
   credentials: true
 }));
 
