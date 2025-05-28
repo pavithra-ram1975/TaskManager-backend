@@ -22,29 +22,29 @@ app.use(express.json());
 //   credentials: true
 // }));
 
-// const allowedOrigins = [
-//   "https://taskmanager-frontend-pied.vercel.app",
-// ];
-
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-//   credentials: true
-// }));
-
+const allowedOrigins = [
+  "https://taskmanager-frontend-pied.vercel.app",
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    console.log("Origin attempting to access:", origin);
-    callback(null, true); // Allow all origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
   },
-  credentials: true // Keep this true only if using cookies
+  credentials: true
 }));
+
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     console.log("Origin attempting to access:", origin);
+//     callback(null, true); // Allow all origins
+//   },
+//   credentials: true // Keep this true only if using cookies
+// }));
 
 
 app.get("/", (req, res) => {
